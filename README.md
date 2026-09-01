@@ -24,6 +24,17 @@
 - 고정 헤더에 섹션 상단이 가려지지 않도록 앵커 이동 오프셋(`scroll-margin-top`) 추가
 - 검색/공유 시 노출되는 Open Graph 메타 태그, `theme-color` 추가
 
+## 배포 (GitHub Pages)
+`.github/workflows/deploy-pages.yml` 워크플로우가 `claude/website-upgrade-loswuh` 브랜치에 푸시될 때마다
+`index.html`, `css/`, `js/`, `assets/`를 GitHub Pages로 자동 배포합니다. 저장소 설정에서 별도로
+Pages를 활성화하지 않았다면 워크플로우가 처음 실행될 때 자동으로 활성화됩니다.
+배포된 주소는 저장소의 **Settings → Pages**에서, 진행 상황은 **Actions** 탭에서 확인할 수 있습니다.
+
+> ⚠️ 이 저장소에는 이 브랜치 외에도 같은 주제로 작업 중인 `claude/website-upgrade-*` 브랜치가 더 있으며,
+> 그중 일부(`claude/website-upgrade-men3wx`)에도 별도의 Pages 배포 워크플로우가 있습니다. GitHub Pages는
+> 저장소당 하나의 라이브 주소만 가지므로, 여러 브랜치의 워크플로우가 각자 배포를 시도하면 **가장 최근에
+> 실행된 워크플로우의 결과가 라이브 사이트를 덮어씁니다.** 최종적으로 어떤 버전을 배포할지 정리가 필요합니다.
+
 ## ⚠️ 실제 오픈 전 반드시 확인/교체할 부분
 - **전화번호**: 현재 임시 번호(`1588-9999`)가 `tel:` 링크와 표시 텍스트에 들어 있습니다. 실제 상담 전화번호로 교체가 필요합니다.
 - **실사 이미지**: 히어로/브랜드/서비스 카드는 현재 커스텀 SVG 일러스트로 대체되어 있습니다(`assets/illustrations/`). 실제 촬영 사진이 준비되면 해당 섹션의 `<img src>`를 사진 파일 경로로 교체해 주세요.
