@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="집에서 책과 함께 영어 단어를 문장으로 만드는 학습 장면 일러스트">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f3efe4"/>
+      <stop offset="55%" stop-color="#dcebe0"/>
+      <stop offset="100%" stop-color="#1e6f5c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <!-- 배경 장식 원 -->
+  <circle cx="1360" cy="160" r="220" fill="#e8722e" opacity="0.14"/>
+  <circle cx="120" cy="760" r="180" fill="#1e6f5c" opacity="0.12"/>
+  <circle cx="1480" cy="740" r="90" fill="#ffffff" opacity="0.10"/>
+
+  <!-- 창문이 있는 방 실루엣 -->
+  <rect x="60" y="60" width="260" height="200" rx="18" fill="#ffffff" opacity="0.18"/>
+  <rect x="90" y="90" width="90" height="70" rx="6" fill="#ffffff" opacity="0.35"/>
+  <rect x="200" y="90" width="90" height="70" rx="6" fill="#ffffff" opacity="0.35"/>
+  <rect x="90" y="180" width="200" height="14" rx="7" fill="#ffffff" opacity="0.28"/>
+
+  <!-- 펼쳐진 책: 단어 -> 문장 -->
+  <g transform="translate(640,300)">
+    <path d="M0 60 Q220 0 440 60 L440 460 Q220 400 0 460 Z" fill="#ffffff" opacity="0.96"/>
+    <path d="M440 60 Q660 0 880 60 L880 460 Q660 400 440 460 Z" fill="#fdfbf6" opacity="0.96"/>
+    <path d="M440 60 L440 460" stroke="#e2ddcd" stroke-width="4"/>
+
+    <!-- 왼쪽 페이지: 단어 카드 -->
+    <rect x="60" y="130" width="300" height="90" rx="16" fill="#f3efe4"/>
+    <text x="210" y="188" font-family="'Noto Sans KR',sans-serif" font-size="46" font-weight="700" fill="#1e6f5c" text-anchor="middle">apple</text>
+    <rect x="60" y="250" width="300" height="24" rx="12" fill="#e2ddcd"/>
+    <rect x="60" y="290" width="220" height="24" rx="12" fill="#e2ddcd"/>
+
+    <!-- 화살표 -->
+    <path d="M400 190 L470 190" stroke="#e8722e" stroke-width="10" stroke-linecap="round"/>
+    <path d="M448 168 L478 190 L448 212" fill="none" stroke="#e8722e" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- 오른쪽 페이지: 문장 -->
+    <rect x="500" y="150" width="330" height="70" rx="14" fill="#1e6f5c"/>
+    <text x="665" y="196" font-family="'Noto Sans KR',sans-serif" font-size="30" font-weight="700" fill="#ffffff" text-anchor="middle">I eat an apple.</text>
+    <rect x="500" y="250" width="330" height="20" rx="10" fill="#e2ddcd"/>
+    <rect x="500" y="284" width="240" height="20" rx="10" fill="#e2ddcd"/>
+  </g>
+
+  <!-- 하단 장식 점들 -->
+  <circle cx="980" cy="700" r="10" fill="#e8722e"/>
+  <circle cx="1030" cy="740" r="6" fill="#1e6f5c" opacity="0.6"/>
+  <circle cx="900" cy="750" r="6" fill="#1e6f5c" opacity="0.6"/>
+</svg>

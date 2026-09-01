@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" role="img" aria-label="방문 학습지에 단어로 문장을 직접 써보는 모습 일러스트">
+  <rect width="800" height="350" fill="#f3efe4"/>
+  <circle cx="700" cy="60" r="90" fill="#1e6f5c" opacity="0.10"/>
+  <circle cx="70" cy="300" r="70" fill="#e8722e" opacity="0.10"/>
+
+  <!-- 학습지 종이 -->
+  <g transform="translate(220,40)">
+    <rect x="0" y="0" width="360" height="270" rx="14" fill="#ffffff" stroke="#e2ddcd" stroke-width="3"/>
+    <rect x="26" y="30" width="200" height="18" rx="9" fill="#1e6f5c"/>
+    <rect x="26" y="70" width="308" height="4" fill="#e2ddcd"/>
+
+    <!-- 단어 -> 문장 라인 -->
+    <rect x="26" y="96" width="90" height="34" rx="8" fill="#f3efe4"/>
+    <text x="71" y="120" font-family="'Noto Sans KR',sans-serif" font-size="18" font-weight="700" fill="#1e6f5c" text-anchor="middle">apple</text>
+    <path d="M126 113 L164 113" stroke="#e8722e" stroke-width="6" stroke-linecap="round"/>
+    <path d="M150 100 L168 113 L150 126" fill="none" stroke="#e8722e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="176" y="98" width="158" height="30" rx="8" fill="#eef7ee"/>
+    <text x="255" y="119" font-family="'Noto Sans KR',sans-serif" font-size="15" font-weight="700" fill="#12513f" text-anchor="middle">I eat an apple.</text>
+
+    <rect x="26" y="150" width="308" height="4" fill="#e2ddcd"/>
+    <rect x="26" y="176" width="220" height="4" fill="#e2ddcd"/>
+    <rect x="26" y="202" width="260" height="4" fill="#e2ddcd"/>
+
+    <!-- 체크 표시 -->
+    <circle cx="310" cy="230" r="20" fill="#e8722e"/>
+    <path d="M300 230 L308 238 L322 222" stroke="#ffffff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- 연필 -->
+  <g transform="translate(560,190) rotate(35)">
+    <rect x="0" y="0" width="150" height="26" rx="6" fill="#e8722e"/>
+    <rect x="150" y="0" width="26" height="26" fill="#f4d7b8"/>
+    <path d="M176 0 L200 13 L176 26 Z" fill="#3b3128"/>
+    <rect x="0" y="0" width="24" height="26" rx="6" fill="#ffd08a"/>
+  </g>
+</svg>

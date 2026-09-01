@@ -70,49 +70,37 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // ---------- 상담 신청 폼 제출 ----------
+  // 현재는 백엔드 연동 전이라 실제 데이터 저장은 이루어지지 않으며,
+  // 화면 확인용으로 제출 완료 화면만 보여줍니다.
+  // 실 운영 전환 시 이 부분을 실제 접수 방식(이메일 발송 서비스, 폼 연동 등)으로 교체해야 합니다.
   const consultForm = document.getElementById('consult-form');
   const formSuccess = document.getElementById('form-success');
 
   if (consultForm) {
     consultForm.addEventListener('submit', function (e) {
       e.preventDefault();
-
-      const submitBtn = consultForm.querySelector('.btn-submit');
-      const originalBtnText = submitBtn.innerHTML;
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> 신청 중...';
-
-      const formData = new FormData(consultForm);
-      const payload = {
-        name: formData.get('name') || '',
-        phone: formData.get('phone') || '',
-        consult_type: formData.get('consult_type') || '전화 상담',
-        region: formData.get('region') || '',
-        preferred_time: formData.get('preferred_time') || '',
-        message: formData.get('message') || '',
-        status: '신규'
-      };
-
-      fetch('tables/consultations', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      })
-        .then(function (res) {
-          if (!res.ok) throw new Error('요청 실패');
-          return res.json();
-        })
-        .then(function () {
-          consultForm.style.display = 'none';
-          if (formSuccess) formSuccess.classList.add('show');
-        })
-        .catch(function (err) {
-          console.error('상담 신청 오류:', err);
-          alert('상담 신청 중 문제가 발생했습니다. 전화(1588-9999)로 문의해 주세요.');
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = originalBtnText;
-        });
+      consultForm.style.display = 'none';
+      if (formSuccess) formSuccess.classList.add('show');
     });
+  }
+
+  // ---------- 스크롤 위치에 따른 내비게이션 활성 표시 ----------
+  const navLinks = mainNav ? Array.from(mainNav.querySelectorAll('a[href^="#"]')) : [];
+  const observedSections = navLinks
+    .map(function (link) { return document.getElementById(link.getAttribute('href').slice(1)); })
+    .filter(Boolean);
+
+  if (navLinks.length && observedSections.length && 'IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(function (link) {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+    observedSections.forEach(function (section) { sectionObserver.observe(section); });
   }
 
   // ---------- 헤더 스크롤 시 배경 강조 ----------
