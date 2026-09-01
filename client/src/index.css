@@ -1,0 +1,92 @@
+/**
+ * 다정한 서재의 편지: 휴머니스트 에디토리얼 스타일. 따뜻한 종이 배경 위에 높은 대비, 넉넉한 행간과 귤빛 밑줄을 유지합니다.
+ */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-serif: "Noto Serif KR", "Batang", serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --background: #fcf8ef;
+  --foreground: #142335;
+  --card: #ffffff;
+  --card-foreground: #142335;
+  --popover: #ffffff;
+  --popover-foreground: #142335;
+  --primary: #172b43;
+  --primary-foreground: #fffdf8;
+  --secondary: #eaf0e7;
+  --secondary-foreground: #254032;
+  --muted: #f2ede2;
+  --muted-foreground: #667080;
+  --accent: #e16f3d;
+  --accent-foreground: #ffffff;
+  --border: #e7dfd0;
+  --input: #e7dfd0;
+  --ring: #e16f3d;
+  --radius: 0.7rem;
+}
+
+* { @apply border-border outline-ring/50; }
+html { scroll-behavior: smooth; }
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+  font-size: 17px;
+  line-height: 1.75;
+  background-image: radial-gradient(rgba(23, 43, 67, 0.035) 0.7px, transparent 0.7px);
+  background-size: 9px 9px;
+}
+button:not(:disabled), a[href], [role="button"] { @apply cursor-pointer; }
+::selection { background: #f4cdbb; color: #142335; }
+
+@layer components {
+  .site-shell { overflow: clip; }
+  .site-width { width: min(1184px, calc(100% - 48px)); margin-inline: auto; }
+  .section-space { padding-block: clamp(4.8rem, 9vw, 8rem); }
+  .paper-shadow { box-shadow: 0 18px 45px rgba(33, 48, 62, 0.09), 0 2px 0 rgba(255,255,255,0.8) inset; }
+  .ink-rule { height: 1px; background: linear-gradient(90deg, #e16f3d 0 58px, #d9d0c0 58px 100%); }
+  .kicker { font-size: 0.72rem; letter-spacing: 0.16em; font-weight: 800; color: #c85a2e; text-transform: uppercase; }
+  .serif-title { font-family: var(--font-serif); letter-spacing: -0.055em; }
+  .orange-underline { position: relative; display: inline-block; z-index: 0; }
+  .orange-underline::after { content: ""; z-index: -1; position: absolute; left: -0.04em; right: -0.04em; bottom: 0.08em; height: 0.24em; background: #f3c8b5; transform: rotate(-1.3deg); }
+  .section-tab { display: inline-flex; align-items: center; gap: .55rem; border-left: 2px solid #e16f3d; padding-left: .7rem; color: #6c665c; font-size: .75rem; letter-spacing: .13em; font-weight: 800; }
+  .dot-grid { background-image: radial-gradient(#cfc5b5 .8px, transparent .8px); background-size: 9px 9px; }
+}
+
+@media (max-width: 640px) {
+  body { font-size: 16px; line-height: 1.72; }
+  .site-width { width: min(100% - 32px, 1184px); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .enter-rise { animation: enter-rise 640ms cubic-bezier(0.23, 1, 0.32, 1) both; }
+  .enter-rise-delay { animation: enter-rise 640ms 90ms cubic-bezier(0.23, 1, 0.32, 1) both; }
+  .enter-rise-delay-2 { animation: enter-rise 640ms 160ms cubic-bezier(0.23, 1, 0.32, 1) both; }
+  @keyframes enter-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+}
